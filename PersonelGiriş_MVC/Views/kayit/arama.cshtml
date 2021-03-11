@@ -1,0 +1,102 @@
+﻿@model List<PersonelGiriş_MVC.Models.personel>
+@{
+    ViewBag.Title = "arama";
+}
+
+
+<body>
+
+
+
+    <!-- Parallax Effect -->
+    <script type="text/javascript">$(document).ready(function () { $('#parallax-pagetitle').parallax("50%", -0.55); });</script>
+
+    <section class="parallax-effect">
+        <div id="parallax-pagetitle" style="background-image: url(../../fonts/parallax-01.jpg);">
+            <div class="color-overlay">
+                <!-- Page title -->
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            @*<ol class="breadcrumb">
+                                    <li><a href="index.html">Home</a></li>
+                                    <li><a href="room-list.html">Room list view</a></li>
+                                    <li class="active">Room detail</li>
+                                </ol>*@
+                            <h1>Personel Bul</h1>
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+
+                            @using (Html.BeginForm("arama", "kayit"))
+                            {
+                                <div style="width: 406px;margin:auto">
+                                    <form class="form-inline">
+                                        <div class="form-group">
+                                            <label for="exampleInputName2">Aranacak İsmi Giriniz:</label>
+                                            <input class="form-control" name="aranan" type="text" />
+                                        </div>
+                                        <div style="text-align:center">
+                                            <input class="btn btn-default" type="submit" value="ARA" />
+                                        </div>
+                                    </form>
+                                </div>
+                            }
+                            <br />
+
+
+                            @if (Model != null)
+                            {
+
+                                <table class="table table-hover" style="color:black">
+                                    <tr class="danger">
+                                        <th>Resim:</th>
+                                        <th>İsim:</th>
+                                        <th>Soyisim:</th>
+                                        <th>TC No:</th>
+                                        <th>Doğum Tarihi:</th>
+                                        <th>Doğum Yeri:</th>
+                                        <th>Cinsiyet:</th>
+                                        <th>Kangrubu:</th>
+                                        <th>Adres:</th>
+                                        <th>TelNo:</th>
+                                        <th></th>
+                                        <th></th>
+                                        <th>Giriş/Çıkış Saati Ekle</th>
+
+                                    </tr>
+
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr class="info">
+                                            <td><img style="width:100px;height:100px" src="~/img/@item.resimismi" /></td>
+                                            <td><br /><br />@Html.DisplayFor(i => item.isim)</td>
+                                            <td><br /><br />@Html.DisplayFor(i => item.soyisim)</td>
+                                            <td><br /><br />@Html.DisplayFor(i => item.tcno)</td>
+                                            <td><br /><br />@Html.DisplayFor(i => item.dogumtarihi)</td>
+                                            <td><br /><br />@Html.DisplayFor(i => item.dogumyeri)</td>
+                                            <td><br /><br />@Html.DisplayFor(i => item.cinsiyet)</td>
+                                            <td><br /><br />@Html.DisplayFor(i => item.kangrubu)</td>
+                                            <td><br /><br />@Html.DisplayFor(i => item.adres)</td>
+                                            <td><br /><br />@Html.DisplayFor(i => item.telno)</td>
+                                            <td><br /><br />@Html.ActionLink("SİL", "sil", new { id = item.id }, new { @class = "btn btn-danger" })</td>
+                                            <td><br /><br />@Html.ActionLink("GÜNCELLE", "personelguncel", new { id = item.id }, new { @class = "btn btn-success" })</td>
+                                            <td><br /><br />@Html.ActionLink("Giriş/Çıkış Saati Ekle", "saatgir", new { id = item.id }, null)</td>
+                                        </tr>
+                                    }
+
+                                </table>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+
+<!-- Mirrored from www.slashdown.net/starhotel-html/room-detail.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 11 Feb 2017 12:51:13 GMT -->
+</html>

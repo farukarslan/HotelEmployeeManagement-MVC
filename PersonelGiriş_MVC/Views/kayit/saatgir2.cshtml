@@ -1,0 +1,64 @@
+﻿@model List<PersonelGiriş_MVC.Models.personel>
+
+
+
+<body>
+    <!-- Parallax Effect -->
+    <script type="text/javascript">$(document).ready(function () { $('#parallax-pagetitle').parallax("50%", -0.55); });</script>
+
+    <section class="parallax-effect">
+        <div id="parallax-pagetitle" style="background-image: url(../../fonts/parallax-01.jpg);">
+            <div class="color-overlay">
+                <!-- Page title -->
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            @*<ol class="breadcrumb">
+                                    <li><a href="index.html">Home</a></li>
+                                    <li><a href="room-list.html">Room list view</a></li>
+                                    <li class="active">Room detail</li>
+                                </ol>*@
+                            <h1>Personel Günlük Kayıt</h1>
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                            <table class="table table-hover" style="color:black;width:500px;margin:auto">
+                                <tr class="danger">
+                                    <th>Resim:</th>
+                                    <th>İsim:</th>
+                                    <th>Soyisim:</th>
+                                    <th></th>
+
+                                </tr>
+
+                                @foreach (var item in Model)
+                                {
+
+                                    <tr class="info">
+                                        <td><img style="width:100px;height:100px" src="~/img/@item.resimismi" /></td>
+                                        <td><br /><br />@Html.DisplayFor(i => item.isim)</td>
+                                        <td><br /><br />@Html.DisplayFor(i => item.soyisim)</td>
+                                        <td><br /><br />@Html.ActionLink("Giriş/Çıkış Saati Ekle", "saatgir", new { id = item.id }, null)</td>
+                                    </tr>
+
+                                }
+
+                            </table>
+
+
+                            <p class="btn btn btn-default" style="float:right">
+                                @Html.ActionLink("Kayıtları Listele ->", "saatList2")
+                            </p>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+

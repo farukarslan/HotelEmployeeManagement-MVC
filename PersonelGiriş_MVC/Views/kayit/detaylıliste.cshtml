@@ -1,0 +1,48 @@
+﻿@model List<PersonelGiriş_MVC.Models.personel>
+@{
+    ViewBag.Title = "detaylıliste";
+}
+
+<!-- Parallax Effect -->
+<script type="text/javascript">$(document).ready(function () { $('#parallax-pagetitle').parallax("50%", -0.55); });</script>
+
+<section class="parallax-effect">
+    <div id="parallax-pagetitle" style="background-image: url(../../fonts/parallax-01.jpg);">
+        <div class="color-overlay">
+            <!-- Page title -->
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        @*<ol class="breadcrumb">
+                                <li><a href="index.html">Home</a></li>
+                                <li><a href="room-list.html">Room list view</a></li>
+                                <li class="active">Room detail</li>
+                            </ol>*@
+                        <h1>Personeller</h1>
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+
+                        @foreach (var item in Model)
+                        {
+
+                            <div class="col-md-3 col-xs-6">
+                                <div class="center" style="color:black">
+                                    <p><img style="width:150px;height:150px;padding: 4px;line-height: 1.428571429;background-color: #fff;border: 1px solid #ddd;-webkit-transition: all .2s ease-in-out;transition: all .2s ease-in-out" class="img-circle" src="~/img/@item.resimismi" alt=""></p>
+                                    <label for="exampleInputEmail2"><p>@Html.DisplayFor(i => item.isim) @Html.DisplayFor(i => item.soyisim)</p></label>
+                                    <p><label for="exampleInputEmail2">TCNo:</label>@Html.DisplayFor(i => item.tcno)</p><p><label for="exampleInputEmail2"> Adres:</label> @Html.DisplayFor(i => item.adres)</p>
+                                    <p><label for="exampleInputEmail2">Telefon:</label> @Html.DisplayFor(i => item.telno)</p>
+                                </div>
+                            </div>
+
+                        }
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

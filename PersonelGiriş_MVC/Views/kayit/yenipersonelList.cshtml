@@ -1,0 +1,104 @@
+﻿@using PagedList.Mvc;
+@model PagedList.IPagedList<PersonelGiriş_MVC.Models.personel>
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+@{
+    ViewBag.Title = "yenipersonelList";
+}
+
+
+<body>
+
+
+
+    <!-- Parallax Effect -->
+    <script type="text/javascript">$(document).ready(function () { $('#parallax-pagetitle').parallax("50%", -0.55); });</script>
+
+    <section class="parallax-effect">
+        <div id="parallax-pagetitle" style="background-image: url(../../fonts/parallax-01.jpg);">
+            <div class="color-overlay">
+                <!-- Page title -->
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <h1>Personel Listele</h1>
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+
+                            @using (Html.BeginForm("yenipersonelList", "kayit"))
+                            {
+
+                                <select class="form-control" style="width:200px" name="id">
+                                    <option>---Sıralama Şekli Seçiniz---</option>
+                                    <option value="1">İsime Göre Listele</option>
+                                    <option value="2">Soyisme Göre Listele</option>
+                                    <option value="3">Yaşa Göre Listele</option>
+                                </select>
+                                <input type="submit" style="margin-left:50px;margin-top:10px" class="btn btn-default" value="Sırala">
+                            }
+
+                            <br />
+
+                            <table class="table table-hover" style="color:black">
+                                <tr class="danger">
+                                    <th>Resim:</th>
+                                    <th>İsim:</th>
+                                    <th>Soyisim:</th>
+                                    <th>TC No:</th>
+                                    <th>Doğum Tarihi:</th>
+                                    <th>Doğum Yeri:</th>
+                                    <th>Cinsiyet:</th>
+                                    <th>Kangrubu:</th>
+                                    <th>Adres:</th>
+                                    <th>TelNo:</th>
+                                    <th></th>
+                                    <th></th>
+
+                                </tr>
+
+                                @foreach (var item in Model)
+                                {
+
+                                    <tr class="info">
+                                        <td><img style="width:100px;height:100px" src="~/img/@item.resimismi" /></td>
+                                        <td><br /><br />@Html.DisplayFor(i => item.isim)</td>
+                                        <td><br /><br />@Html.DisplayFor(i => item.soyisim)</td>
+                                        <td><br /><br />@Html.DisplayFor(i => item.tcno)</td>
+                                        <td><br /><br />@Html.DisplayFor(i => item.dogumtarihi)</td>
+                                        <td><br /><br />@Html.DisplayFor(i => item.dogumyeri)</td>
+                                        <td><br /><br />@Html.DisplayFor(i => item.cinsiyet)</td>
+                                        <td><br /><br />@Html.DisplayFor(i => item.kangrubu)</td>
+                                        <td><br /><br />@Html.DisplayFor(i => item.adres)</td>
+                                        <td><br /><br />@Html.DisplayFor(i => item.telno)</td>
+                                        <td><br /><br />@Html.ActionLink("SİL", "sil", new { id = item.id }, new { @class = "btn btn-danger" })</td>
+                                        <td><br /><br />@Html.ActionLink("GÜNCELLE", "personelguncel", new { id = item.id }, new { @class = "btn btn-success" })</td>
+                                    </tr>
+
+                                }
+
+                            </table>
+                            <center>
+                                @Html.PagedListPager(Model, page => Url.Action("yenipersonelList", new { page, @class = "btn btn-danger" }))
+                                <div style="color:black">
+                                    Sayfa @Model.PageCount de @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)
+                                </div>
+                            </center>
+
+
+                            <p class="btn btn btn-default">
+                                @Html.ActionLink("<- Yeni Kayıt", "yenipersonelgir")
+                            </p>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+
+

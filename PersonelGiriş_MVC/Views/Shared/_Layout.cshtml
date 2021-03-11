@@ -1,0 +1,130 @@
+﻿<!DOCTYPE HTML>
+<html>
+
+<!-- Mirrored from www.slashdown.net/starhotel-html/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 11 Feb 2017 12:48:48 GMT -->
+<head>
+    <meta charset="utf-8">
+    <title>Ömer Otel</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <!-- Stylesheets -->
+    <link href="~/Content/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/css/main.css" rel="stylesheet" />
+    <link href="~/Content/css/animate.css" rel="stylesheet" />
+    <link href="~/Content/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Content/css/owl.carousel.css" rel="stylesheet" />
+    <link href="~/Content/css/owl.theme.css" rel="stylesheet" />
+    <link href="~/Content/css/prettyPhoto.css" rel="stylesheet" />
+    <link href="~/Content/css/smoothness/jquery-ui-1.10.4.custom.min.css" rel="stylesheet" />
+    <link href="~/Content/rs-plugin/css/settings.css" rel="stylesheet" />
+    <link href="~/Content/css/theme.css" rel="stylesheet" />
+    <link href="~/Content/css/colors/turquoise.css" rel="stylesheet" />
+    <link href="~/Content/css/responsive.css" rel="stylesheet" />
+    <link href="~/Content/css/kayit.css" rel="stylesheet" />
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600,700">
+
+    <!-- Javascripts -->
+    <script src="~/Content/js/jquery-1.11.0.min.js"></script>
+    <script src="~/Content/js/bootstrap.min.js"></script>
+    <script src="~/Content/js/bootstrap-hover-dropdown.min.js"></script>
+    <script src="~/Content/js/owl.carousel.min.js"></script>
+    <script src="~/Content/js/jquery.parallax-1.1.3.js"></script>
+    <script src="~/Content/js/jquery.nicescroll.js"></script>
+    <script src="~/Content/js/jquery.prettyPhoto.js"></script>
+    <script src="~/Content/js/jquery-ui-1.10.4.custom.min.js"></script>
+    <script src="~/Content/js/jquery.forms.js"></script>
+    <script src="~/Content/js/jquery.sticky.js"></script>
+    <script src="~/Content/js/waypoints.min.js"></script>
+    <script src="~/Content/js/jquery.isotope.min.js"></script>
+    <script src="~/Content/js/jquery.gmap.min.js"></script>
+    <script src="~/Content/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
+    <script src="~/Content/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+    <script src="~/Content/js/switch.js"></script>
+    <script src="~/Content/js/custom.js"></script>
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+          <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '../../www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-50960990-1', 'slashdown.nl');
+        ga('send', 'pageview');
+    </script>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <!-- Navigation -->
+        <div class="navbar yamm navbar-default" id="sticky">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" data-toggle="collapse" data-target="#navbar-collapse-grid" class="navbar-toggle"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+                    <a href="#" class="navbar-brand"> 
+                        <!-- Logo -->
+                        <div id="logo"> <img id="default-logo" src="~/Content/images/logo.png" alt="Starhotel" style="height:44px;"> <img id="retina-logo" src="~/Models/images/logo-retina.png" alt="Starhotel" style="height:44px;"> </div>
+                    </a>
+                </div>
+                <div id="navbar-collapse-grid" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        @*<li>
+                                <a href="index.html">Home</a>
+                            </li>*@
+                        <li>@Html.ActionLink("Anasayfa", "Index", "Home")</li>
+                        @*<li>
+                                <a href="#" >Rooms</a>
+                            </li>*@
+                        <li>@Html.ActionLink("Personel Kayıt", "yenipersonelgir", "kayit")</li>
+                        @*<li >
+                            <a href="#">Features</a>*@
+
+                        <li>@Html.ActionLink("Giriş/Çıkış Kaydı", "saatgir2", "kayit")</li>
+
+                        </li>
+                        <li>
+                        <li>@Html.ActionLink("Personel Ara", "arama", "kayit")</li>
+                        @*<ul class="dropdown-menu">
+                                <li><a href="blog.html">Blog grid</a></li>
+                                <li><a href="blog-post.html">Blog post</a></li>
+                            </ul>*@
+                        </li>
+
+                        <li class="dropdown">
+                            <a href="#" data-toggle="dropdown" class="dropdown-toggle js-activated">Listele<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li>@Html.ActionLink("Personel Kayıtları", "yenipersonelList", "kayit")</li>
+                                <li>@Html.ActionLink("Giriş/Çıkış Kayıtları", "saatList2", "kayit")</li>
+                            </ul>
+                        </li>
+
+                        <li>@Html.ActionLink("Detaylı Liste", "detaylıliste", "kayit")</li>
+
+                        @*<li class="dropdown">
+                                   <a href="#" data-toggle="dropdown" class="dropdown-toggle js-activated">Contact<b class="caret"></b></a>
+                                   <ul class="dropdown-menu">
+                                       <li><a href="contact-01.html">Contact 1</a></li>
+                                       <li><a href="contact-02.html">Contact 2</a></li>
+                                   </ul>
+                            </li>*@
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </header>
+    @RenderBody()
+</body>
+
+<!-- Mirrored from www.slashdown.net/starhotel-html/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 11 Feb 2017 12:50:03 GMT -->
+</html>

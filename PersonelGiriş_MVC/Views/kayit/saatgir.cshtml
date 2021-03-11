@@ -1,0 +1,67 @@
+﻿@model PersonelGiriş_MVC.Models.saat
+@{
+    ViewBag.Title = "saatgir";
+}
+
+
+
+<!DOCTYPE HTML>
+<html>
+<body>
+    <!-- Parallax Effect -->
+    <script type="text/javascript">$(document).ready(function () { $('#parallax-pagetitle').parallax("50%", -0.55); });</script>
+    <section class="parallax-effect">
+        <div id="parallax-pagetitle" style="background-image: url(../../fonts/parallax-01.jpg);">
+            <div class="color-overlay">
+                <!-- Page title -->
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            @*<ol class="breadcrumb">
+                                    <li><a href="index.html">Home</a></li>
+                                    <li class="active">Room detail</li>
+                                </ol>
+                            *@
+                            <h1>Giriş/Çıkış Saati</h1>
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                            @{
+                                var kayittarihi = DateTime.Now.Date;
+
+                            }
+
+                            <h2 style="color:black">@ViewBag.mesaj</h2>
+                            @using (Html.BeginForm("saatgir", "kayit", FormMethod.Post))
+                            {
+
+                                <div style="width:300px;height:auto;margin:auto;color:black">
+                                    <dl>
+                                        <dt>Giriş saati Giriniz:</dt>
+                                        <dd>@Html.TextBoxFor(i => Model.girissaati, new { @class = "form-control" })</dd>
+
+                                        <dt>Çıkış saati Giriniz: </dt>
+                                        <dd>@Html.TextBoxFor(i => Model.cikissaati, new { @class = "form-control" })</dd>
+
+                                        <dt></dt>
+                                        <dd><input type="hidden" name="gizlidosya" value="@kayittarihi" /></dd>
+                                        <br />
+                                        <dt></dt>
+                                        <dd style="text-align:center"><input type="submit" class="btn btn-default" value="Kaydet"></dd>
+
+                                    </dl>
+                                    <p class="btn btn-default" style="float:left">
+                                        @Html.ActionLink("<- Geri Dön", "saatgir2")
+                                    </p>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

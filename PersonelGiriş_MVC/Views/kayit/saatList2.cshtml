@@ -1,0 +1,55 @@
+﻿@model  PersonelGiriş_MVC.Models.ortaktablo
+<!DOCTYPE HTML>
+<html>
+<body>
+    <!-- Parallax Effect -->
+    <script type="text/javascript">$(document).ready(function () { $('#parallax-pagetitle').parallax("50%", -0.55); });</script>
+    <section class="parallax-effect">
+        <div id="parallax-pagetitle" style="background-image: url(../../fonts/parallax-01.jpg);">
+            <div class="color-overlay">
+                <!-- Page title -->
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <h1>Günlük Giriş/Çıkış Kayıtları</h1>
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+
+                            @using (Html.BeginForm("saatList2", "kayit"))
+                            {
+                                @Html.DropDownList("dropdanveri", ViewBag.saat as SelectList, "--- Kayıt Tarihi Seçiniz ---",
+                            new { @class = "btn btn-primary dropdown-toggle" })
+                                <input type="submit" value="Kayıtları getir" class="btn btn-default" />
+                            }
+                            <table class="table table-hover" style="color:black">
+                                <tr class="danger">
+                                    <th>İsim:       </th>
+                                    <th>Soyisim:    </th>
+                                    <th>Giriş Saati:</th>
+                                    <th>Çıkış Saati:</th>
+                                </tr>
+
+                                @if (Model != null)
+                                {
+                                    foreach (var item in Model.toplamtablo)
+                                    {
+                                        <tr class="info">
+                                            <td>@Html.DisplayFor(i => item.p_isim)</td>
+                                            <td>@Html.DisplayFor(i => item.p_soyisim)</td>
+                                            <td>@Html.DisplayFor(i => item.p_girissaati)</td>
+                                            <td>@Html.DisplayFor(i => item.p_cikissaati)</td>
+                                        </tr>
+                                    }
+                                }
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
